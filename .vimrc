@@ -19,6 +19,7 @@ set shiftwidth=2
 set laststatus=2
 set helplang=en
 set clipboard=unnamed
+set backspace=indent,eol,start
 
 " Note: Skip initialization for vim-tiny or vim-small.
 if 0 | endif
@@ -44,9 +45,17 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Note: You don't set neobundle setting in .gvimrc!
 NeoBundle 'tomasr/molokai'
 NeoBundle 'bling/vim-airline.git'
+NeoBundle 'Shougo/neocomplete'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 
 call neobundle#end()
 
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+
+let g:neocomplete#enable_at_startup = 1
+let g:neosnippet#snippets_directory='~/dotfiles/snippets/'
 let g:airline#extensions#tabline#enabled = 1
 
 " Required:
